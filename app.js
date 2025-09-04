@@ -9,7 +9,12 @@ button.addEventListener('click', function () {
             return response.json();
         })
 
-        .then(function (json) {
-            div.textContent = json;
+        .then(function (data) {
+            div.textContent = `Title:${data[0].title} , Body:${data[0].body}`;
+            let listaOrdenada = "<ol>";
+            for (usuario in data) {
+                listaOrdenada += `
+                <li>${data[usuario].title}</li>`;
+            }
         })
 });

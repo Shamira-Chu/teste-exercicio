@@ -8,7 +8,12 @@ button.addEventListener('click', function () {
             return response.json();
         })
         .then(function (json) {
-            div.innerText = json.body;
+            let post = Post.fromRaw(json);
+            div = post.renderFrom(div);
+
+
+            //console.log(post);
+            //div.innerText = json.body;
             //div.innerText = JSON.stringify(json,null,0);
         })
 });
